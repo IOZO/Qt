@@ -4,13 +4,12 @@ Fenetre::Fenetre()
 {
     setFixedSize(500,300);
 
-    m_bouton = new QPushButton("Salut les zéros, la forme ?",this);
-    m_bouton->setText("Pimp my button");
+   m_lcd = new QLCDNumber(this);
+   m_lcd->setSegmentStyle(QLCDNumber::Flat);
+   m_lcd->move(100,20);
 
-    m_bouton->setToolTip("Aide sur ce super bouton");
-    m_bouton->setFont(QFont("Comic Sans MS", 20, QFont::Bold, true));
-    m_bouton->setGeometry(100,100,300,100);
-    m_bouton->setIcon(QIcon("tq.png"));
+   m_slider = new QSlider(Qt::Horizontal,this);
+   m_slider->setGeometry(50,80,150,20);
 
-    QObject::connect(m_bouton, SIGNAL(clicked()), qApp, SLOT(quit()));
+   connect(m_slider, SIGNAL(valueChanged(int)), m_lcd, SLOT(display(int)));
 }

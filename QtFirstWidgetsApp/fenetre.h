@@ -4,6 +4,8 @@
 #include <QApplication>
 #include <QWidget>
 #include <QPushButton>
+#include <QSlider>
+#include <QLCDNumber>
 
 class Fenetre : public QWidget
 {
@@ -11,7 +13,8 @@ public:
     Fenetre();
 
 private:
-    QPushButton *m_bouton;
+    QLCDNumber *m_lcd;
+    QSlider *m_slider;
 };
 
 #endif // FENETRE_H
