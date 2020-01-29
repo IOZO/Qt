@@ -5,7 +5,7 @@
 #include <QWidget>
 #include <QPushButton>
 #include <QSlider>
-#include <QLCDNumber>
+#include <QProgressBar>
 
 class Fenetre : public QWidget
 {
@@ -13,8 +13,8 @@ public:
     Fenetre();
 
 private:
-    QLCDNumber *m_lcd;
     QSlider *m_slider;
+    QProgressBar *m_progressBar;
 };
 
 #endif // FENETRE_H
