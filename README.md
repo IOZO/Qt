@@ -1,2 +1,2 @@
-# QT
-QT test
+# Qt
+Qt test
