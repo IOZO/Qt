@@ -3,18 +3,21 @@
 
 #include <QApplication>
 #include <QWidget>
-#include <QPushButton>
 #include <QSlider>
-#include <QProgressBar>
 
 class Fenetre : public QWidget
 {
+    Q_OBJECT
+
+
 public:
     Fenetre();
 
+public slots:
+    void changerLargeur(int largeur);
+
 private:
     QSlider *m_slider;
-    QProgressBar *m_progressBar;
 };
 
 #endif // FENETRE_H
