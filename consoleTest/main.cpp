@@ -1,42 +1,51 @@
 #include <QCoreApplication>
 #include <QDebug>
+#include <array>
 
-/**
- * @brief main
- * @param argc
- * @param argv
- * @return
- */
+using namespace std;
+
+enum Colors {black,blue,red,green};
+
+struct product{
+    int weight;
+    double value;
+    Colors color;
+};
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    // Variables
-    bool isOn = true;
-    qInfo() << "is it on" << isOn;
+    product laptop;
+    qInfo()<< "Size of product"<<sizeof(laptop);
 
-    int age = 53;
-    double height = 1.84;
+    laptop.color = Colors::black;
+    laptop.value = 849.99;
+    laptop.weight = 1;
 
-    qInfo() << "Age"<<age;
-    qInfo() << "Height"<<height;
+    qInfo() << "Weight :"<<laptop.weight;
+    qInfo() << "Value :"<<laptop.value;
+    qInfo() << "Color :"<<laptop.color;
 
-    signed int dogs=-1;
-    dogs = 15;
+    int ages[4] = {2,4,5,6};
+
+    qInfo() << *ages;
+    qInfo() << ages[0];
+    qInfo() << ages[1];
+    qInfo() << ages[2];
+    qInfo() << ages[3];
+
+    array<int,4> cars;
+    cars[0] = 2;
+    cars[1] = 128;
+    cars[2] = 4;
+    cars[3] = 25;
+    cars[4] = 69;
+    cars[5] = 007;
 
 
-    const unsigned int cats = 4;
-
-    qInfo() << "Dogs" << dogs;
-    qInfo() << "Cats" << cats;
-
-    enum Color{red=100,green=43,blue=5678};
-
-    Color myColor = Color::blue;
-
-    qInfo() << "My color"<<myColor;
-
-
+    qInfo() << "size cars " << cars.size();
+    qInfo() << "sizeof cars " << sizeof(cars);
+    qInfo() << "Last element" << cars[cars.size() - 1];
     return a.exec();
 }
