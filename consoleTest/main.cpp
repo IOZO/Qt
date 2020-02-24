@@ -1,51 +1,33 @@
 #include <QCoreApplication>
 #include <QDebug>
-#include <array>
+#include <iostream>
 
 using namespace std;
 
-enum Colors {black,blue,red,green};
-
-struct product{
-    int weight;
-    double value;
-    Colors color;
-};
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
+    int age = 0;
 
-    product laptop;
-    qInfo()<< "Size of product"<<sizeof(laptop);
+    qInfo() << "Enter your age:";
+    cin >> age;
 
-    laptop.color = Colors::black;
-    laptop.value = 849.99;
-    laptop.weight = 1;
+    if(age==0) qFatal("you did not enter a valid age !!!");
 
-    qInfo() << "Weight :"<<laptop.weight;
-    qInfo() << "Value :"<<laptop.value;
-    qInfo() << "Color :"<<laptop.color;
+    qInfo() << "You entered" << age;
 
-    int ages[4] = {2,4,5,6};
+    if(age < 18){
+        qInfo()<<"You are under age!";
+        qInfo()<<"Please come back when you are old enough!";
+    }
 
-    qInfo() << *ages;
-    qInfo() << ages[0];
-    qInfo() << ages[1];
-    qInfo() << ages[2];
-    qInfo() << ages[3];
+    if(age < 21 && age >= 18)
+        qInfo()<<"You are not really an adult yet!";
 
-    array<int,4> cars;
-    cars[0] = 2;
-    cars[1] = 128;
-    cars[2] = 4;
-    cars[3] = 25;
-    cars[4] = 69;
-    cars[5] = 007;
+    if(age >= 21) qInfo() << "You are adult !";
 
+    if(age > 150) qCritical() << "really ? are you human ? if yes, where did you find the fountain of jouvence !";
 
-    qInfo() << "size cars " << cars.size();
-    qInfo() << "sizeof cars " << sizeof(cars);
-    qInfo() << "Last element" << cars[cars.size() - 1];
     return a.exec();
 }
