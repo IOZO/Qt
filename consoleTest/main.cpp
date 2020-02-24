@@ -4,21 +4,27 @@
 
 using namespace std;
 
-
-void test(int age=0){
-    qInfo() << "age is"<<age;
+// Pass by value (copy)
+void testVal(int i=0){
+    i+=30;
+    qInfo() << "I = "<<i;
 }
 
-void test(bool isActive=false){
-    (isActive)?qInfo()<<"Active":qInfo()<<"Not Active";
-}
 
+// Pass by Ref (copy)
+void testRef(int &i){
+    i+=30;
+    qInfo() << "I = "<<i;
+}
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    int age = 12;
+    int i0 = 50;
 
-    test(age);
-    test(true);
+    testVal(i0);
+    qInfo() << "I0 = "<< i0;
+
+    testRef(i0);
+    qInfo() << "I0 = "<< i0;
     return a.exec();
 }
