@@ -1,27 +1,22 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <iostream>
+#include "animal.h"
 
 using namespace std;
-
-struct laptop{
-    int weight;
-
-    double asKilograms(){
-        return weight * 0.453592;
-    }
-};
 
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    laptop noteBook;
-    noteBook.weight = 5;
+    animal dog;
+    animal cat;
+    animal bird;
 
+    cat.speak("Meow");
+    dog.speak("warf!!");
+    bird.speak("tchip tchip");
 
-    qInfo() << "Pounds = "<<  noteBook.weight;
-    qInfo() << "Kilograms = "<<  noteBook.asKilograms();
-    return a.exec();
+     return a.exec();
 }
