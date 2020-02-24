@@ -4,27 +4,24 @@
 
 using namespace std;
 
-// Pass by value (copy)
-void testVal(int i=0){
-    i+=30;
-    qInfo() << "I = "<<i;
-}
+struct laptop{
+    int weight;
+
+    double asKilograms(){
+        return weight * 0.453592;
+    }
+};
 
 
-// Pass by Ref (copy)
-void testRef(int &i){
-    i+=30;
-    qInfo() << "I = "<<i;
-}
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    int i0 = 50;
 
-    testVal(i0);
-    qInfo() << "I0 = "<< i0;
+    laptop noteBook;
+    noteBook.weight = 5;
 
-    testRef(i0);
-    qInfo() << "I0 = "<< i0;
+
+    qInfo() << "Pounds = "<<  noteBook.weight;
+    qInfo() << "Kilograms = "<<  noteBook.asKilograms();
     return a.exec();
 }
