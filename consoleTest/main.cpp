@@ -1,31 +1,20 @@
 #include <QCoreApplication>
 #include <QDebug>
 #include <iostream>
-#include "laptop.h"
+#include "appliance.h"
 
 using namespace std;
 
 
-void test(laptop &machine)
-{
-    machine.test();
-}
-
-void makeLapTops(QObject* parent){
-    laptop mine(parent, "myNoteBook");
-    laptop yours(parent, "myOtherNoteBook");
-
-    mine.weight = 3;
-    yours.weight = 6;
-
-    test(mine);
-    test(yours);
-}
-
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
-    makeLapTops(&a);
+
+    appliance kitchen5000;
+
+    qInfo() << "Can cook ?" << kitchen5000.cook();
+    qInfo() << "Can grill ?" << kitchen5000.freeze();
+    qInfo() << "Can freeze ?" << kitchen5000.grill();
 
     return a.exec();
 }
