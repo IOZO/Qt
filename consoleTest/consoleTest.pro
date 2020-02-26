@@ -16,8 +16,8 @@ DEFINES += QT_DEPRECATED_WARNINGS
 
 SOURCES += \
         main.cpp \
-        radio.cpp \
-        station.cpp
+        test.cpp \
+        watcher.cpp
 
 TRANSLATIONS += \
     consoleTest_fr_FR.ts
@@ -28,5 +28,5 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
 HEADERS += \
-    radio.h \
-    station.h
+    test.h \
+    watcher.h
